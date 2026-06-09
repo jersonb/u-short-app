@@ -1,0 +1,8 @@
+<ul>
+  @for (item of items; track item) {
+    <li>
+      <app-item [itemData]="item"></app-item>
+      <hr />
+    </li>
+  }
+</ul>

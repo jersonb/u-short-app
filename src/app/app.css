@@ -1,0 +1,19 @@
+:host {
+    display: block;
+    height: 100vh;
+}
+
+.loading {
+    pointer-events: none;
+    user-select: none;
+    cursor: wait;
+}
+
+span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em;
+    color: #333;
+}

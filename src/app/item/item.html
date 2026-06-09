@@ -1,0 +1,36 @@
+@let item = itemData();
+
+<details>
+  <summary>
+    <kbd>{{ item.code }}</kbd>
+    <sub>{{ item.date | date: "(dd/MM/yyyy)" }}</sub>
+    <blockquote>
+      <strong>{{ item.description }}</strong>
+      <footer>
+        <cite>{{ item.url }}</cite>
+      </footer>
+    </blockquote>
+  </summary>
+  <article>
+    <a href="{{ url() }}" target="_blank">📝</a>
+
+    <section>
+      <h5>
+        <a [routerLink]="['/', item.code]" target="_blank">{{ url() }}</a>
+      </h5>
+
+      <div class="qrcode">
+        <qrcode
+          [qrdata]="url()"
+          [colorDark]="'#000000ff'"
+          [colorLight]="'#ffffffff'"
+          [elementType]="'canvas'"
+          [errorCorrectionLevel]="'H'"
+          [margin]="2"
+          [scale]="1"
+          [width]="qrcodeWidth"
+        />
+      </div>
+    </section>
+  </article>
+</details>

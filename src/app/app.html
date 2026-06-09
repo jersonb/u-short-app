@@ -1,0 +1,12 @@
+<main class="container {{ loadingService.isLoading() ? 'loading' : '' }}">
+  @if (loadingService.isLoading()) {
+    <span aria-busy="true"></span>
+  }
+
+  @if (authService.isAuthorized()) {
+    <app-header />
+    <app-sidebar />
+  }
+
+  <router-outlet />
+</main>

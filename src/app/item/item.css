@@ -1,0 +1,38 @@
+:host {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+details {
+    width: 100%;
+}
+
+article>section{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+article>a{
+      text-decoration: none;
+}
+
+kbd {
+    margin: 0 1em 0 0.5em;
+}
+
+.qrcode{
+    align-items: center;
+}
+
+.small-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    margin: 0 1em 0 1em;
+    font-size: 0.8em;
+}

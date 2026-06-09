@@ -1,0 +1,60 @@
+<form novalidate (submit)="onSubmit($event)">
+  <fieldset>
+    <label for="code">Código</label>
+    <input id="code" type="text" [formField]="itemCreeateForm.code" />
+    @if (itemCreeateForm().touched() && itemCreeateForm.code().invalid()) {
+      @for (error of itemCreeateForm.code().errors(); track error) {
+        <p class="error">
+          <small>
+            {{ error.message }}
+          </small>
+        </p>
+      }
+    }
+  </fieldset>
+
+  <fieldset>
+    <label for="description">Descrição</label>
+    <textarea
+      id="description"
+      type="text"
+      [formField]="itemCreeateForm.description"
+    ></textarea>
+    @if (
+      (itemCreeateForm().touched() || itemCreeateForm().dirty()) &&
+      itemCreeateForm.description().invalid()
+    ) {
+      @for (error of itemCreeateForm.description().errors(); track error) {
+        <p class="error">
+          <small>
+            {{ error.message }}
+          </small>
+        </p>
+      }
+    }
+  </fieldset>
+
+  <fieldset>
+    <label for="url">URL</label>
+    <input id="url" type="url" [formField]="itemCreeateForm.url" />
+    @if (itemCreeateForm().touched() && itemCreeateForm.url().invalid()) {
+      @for (error of itemCreeateForm.url().errors(); track error) {
+        <p class="error">
+          <small>
+            {{ error.message }}
+          </small>
+        </p>
+      }
+    }
+  </fieldset>
+  @for (error of itemCreeateForm().errors(); track error) {
+    <p class="error">
+      <small>
+        {{ error.message }}
+      </small>
+    </p>
+  }
+  <button [disabled]="itemCreeateForm().invalid()" type="submit" value="Criar">
+    Criar
+  </button>
+</form>

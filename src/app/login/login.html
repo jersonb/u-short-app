@@ -1,0 +1,28 @@
+<header>
+  <img src="logo_white.svg" alt="Logo" />
+  <hgroup>
+    <h5>Encurtadinhos</h5>
+    <p><sub>by Cleo</sub></p>
+  </hgroup>
+</header>
+
+<form novalidate (submit)="onSubmit($event)">
+  <fieldset>
+    <input
+      type="email"
+      placeholder="Email"
+      autocomplete="email"
+      [formField]="loginForm.email"
+    />
+    @if (loginForm().touched() && loginForm.email().invalid()) {
+      @for (error of loginForm.email().errors(); track error) {
+        <p class="error">
+          <small>
+            {{ error.message }}
+          </small>
+        </p>
+      }
+    }
+  </fieldset>
+  <input [disabled]="!loginForm().dirty()" type="submit" value="Login" />
+</form>

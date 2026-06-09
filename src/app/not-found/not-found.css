@@ -1,0 +1,41 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: clamp( 300px, 30vw, 400px);
+    margin:  auto;
+}
+
+.contador {
+  position: relative;
+  font-size: 5rem;
+  font-weight: bold;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+}
+
+.numero {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  /* Duração total de 3s (1s para cada número) com repetição infinita */
+  animation: contagem 3s infinite ease-in-out;
+}
+
+/* Define o atraso (delay) para cada número */
+.numero:nth-child(1) { animation-delay: 0s; }
+.numero:nth-child(2) { animation-delay: 1s; }
+.numero:nth-child(3) { animation-delay: 2s; }
+.numero:nth-child(4) { animation-delay: 3s; }
+
+@keyframes contagem {
+  0% { opacity: 0; transform: scale(1); }
+  20% { opacity: 1; transform: scale(1); }
+  40% { opacity: 1; transform: scale(1); }
+  60% { opacity: 0; transform: scale(1); }
+  100% { opacity: 0; }
+}
